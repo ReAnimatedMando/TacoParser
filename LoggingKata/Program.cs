@@ -45,9 +45,7 @@ namespace LoggingKata
             // TODO: Create two `ITrackable` variables with initial values of `null`. 
             // These will be used to store your two Taco Bells that are the farthest from each other.
             // TODO: Create a `double` variable to store the distance
-            ITrackable tacoBellOne = null;
-            ITrackable tacoBellTwo = null;
-            double distance = 0;
+            
 
 
             // TODO: Add the Geolocation library to enable location comparisons: using GeoCoordinatePortable;
@@ -60,7 +58,34 @@ namespace LoggingKata
             // TODO: Create a loop to go through each item in your collection of locations.
             // This loop will let you select one location at a time to act as the "starting point" or "origin" location.
             // Naming suggestion for variable: `locA`
+            ITrackable tacoBellOne = null;
+            ITrackable tacoBellTwo = null;
+            double distance = 0;
             
+            
+            for (int i = 0; i < locations.Length; i++)
+            {
+                var locA = locations[i];
+                var corA = new GeoCoordinate();
+                corA.Latitude = locA.Location.Latitude;
+                corA.Longitude = locA.Location.Longitude;
+
+                for (int r = 0; r < locations.Length; r++)
+                {
+                    var locB = locations[r];
+                    var corB = new GeoCoordinate();
+                    corB.Latitude = locB.Location.Latitude;
+                    corB.Longitude = locB.Location.Latitude;
+
+                    if (corA.GetDistanceTo(corB) > distance)
+                    {
+                        distance = corA.GetDistanceTo(corB);
+                        tacoBellOne = locA;
+                        tacoBellTwo = locB;
+                    }
+                }
+                
+            }
 
             // TODO: Once you have locA, create a new Coordinate object called `corA` with your locA's latitude and longitude.
 
@@ -79,7 +104,7 @@ namespace LoggingKata
             // Once you've looped through everything, you've found the two Taco Bells farthest away from each other.
             // Display these two Taco Bell locations to the console.
 
-
+            logger.LogInfo($"{tacoBellOne.Name} and {tacoBellTwo.Name} are the greatest distance from eachother!");
 
         }
     }
