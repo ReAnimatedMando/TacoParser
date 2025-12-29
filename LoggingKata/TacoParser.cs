@@ -54,7 +54,7 @@
             // TODO: Then, return the instance of your TacoBell class,
             // since it conforms to ITrackable
 
-            return null;
+            return tacoBell;
         }
     }
 }
