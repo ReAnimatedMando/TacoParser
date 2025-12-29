@@ -27,7 +27,7 @@ namespace LoggingKata.Test
         [InlineData("31.447495, -85.657311, Taco Bell Ozar...", -85.657311)]
         [InlineData("34.113051, -84.56005, Taco Bell Woodstoc...", -84.56005)]
 
-    //Add additional inline data. Refer to your CSV file.
+        //Add additional inline data. Refer to your CSV file.
         public void ShouldParseLongitude(string line, double expected)
         {
             // TODO: Complete the test with Arrange, Act, Assert steps below.
