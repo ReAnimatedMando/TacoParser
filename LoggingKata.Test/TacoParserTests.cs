@@ -36,12 +36,12 @@ namespace LoggingKata.Test
             //       Each "line" from your .csv file
             //       represents a TacoBell location
 
-            //Arrange
-            var tacoParser = new TacoParser();
+            //Arrange - the code needed to call the method we're testing
+            var tacoParserTest = new TacoParser();
             //Act
-            var actual = tacoParser.Parse(line);
+            var actual = tacoParserTest.Parse(line);
             //Assert
-            Assert.AreEqual(expected, actual);
+            Assert.Equal(expected, actual.Location.Longitude);
         }
 
         
@@ -61,7 +61,7 @@ namespace LoggingKata.Test
             //Act
             var actual = tacoParser.Parse(line);
             //Assert
-            Assert.AreEqual(expected, actual);
+            Assert.Equal(expected, actual.Location.Latitude);
         }
 
     }
