@@ -8,15 +8,11 @@ namespace LoggingKata.Test
         [Fact]
         public void ShouldReturnNonNullObject()
         {
-            //Arrange
             var tacoParser = new TacoParser();
-
-            //Act
+            
             var actual = tacoParser.Parse("34.073638, -84.677017, Taco Bell Acwort...");
-
-            //Assert
+            
             Assert.NotNull(actual);
-
         }
 
         [Theory]
@@ -27,25 +23,16 @@ namespace LoggingKata.Test
         [InlineData("31.447495, -85.657311, Taco Bell Ozar...", -85.657311)]
         [InlineData("34.113051, -84.56005, Taco Bell Woodstoc...", -84.56005)]
 
-        //Add additional inline data. Refer to your CSV file.
+       
         public void ShouldParseLongitude(string line, double expected)
         {
-            // TODO: Complete the test with Arrange, Act, Assert steps below.
-            //       Note: "line" string represents input data we will Parse 
-            //       to extract the Longitude.  
-            //       Each "line" from your .csv file
-            //       represents a TacoBell location
-
-            //Arrange - the code needed to call the method we're testing
             var tacoParserTest = new TacoParser();
-            //Act
+     
             var actual = tacoParserTest.Parse(line);
-            //Assert
+          
             Assert.Equal(expected, actual.Location.Longitude);
         }
-
         
-        //TODO: Create a test called ShouldParseLatitude
         
         [Theory]
         [InlineData("31.597099, -84.176122, Taco Bell Albany...", 31.597099)]
@@ -56,11 +43,10 @@ namespace LoggingKata.Test
         [InlineData("33.933808, -85.610591, Taco Bell Piedmont...", 33.933808)]
         public void ShouldParseLatitude(string line, double expected)
         {
-            //Arrange
             var tacoParser = new TacoParser();
-            //Act
+          
             var actual = tacoParser.Parse(line);
-            //Assert
+       
             Assert.Equal(expected, actual.Location.Latitude);
         }
 
